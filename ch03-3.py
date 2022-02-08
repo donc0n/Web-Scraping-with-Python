@@ -1,7 +1,6 @@
-from tracemalloc import start
 from urllib.request import urlopen
+from urllib.request import HTTPError
 from urllib.parse import urlparse
-from xml.etree.ElementInclude import include
 from bs4 import BeautifulSoup
 import re
 import datetime
@@ -41,6 +40,10 @@ def getExternalLinks(bsObj, excludeUrl):
                 externalLinks.append(link.attrs['href'])
     return externalLinks
 
+def splitAddress(address):
+    addressParts=address.replace("http://", "").split("/")
+    return addressParts
+
 def getRandomExternalLink(startingPage):
     html = urlopen(startingPage)
     bsObj = BeautifulSoup(html, "html.parser")
@@ -57,4 +60,42 @@ def followExternalOnly(startingSite):
     print("Random external link is: "+externalLink)
     followExternalOnly(externalLink)
 
-followExternalOnly("http://oreilly.com")
+# followExternalOnly("http://oreilly.com")
+
+allExtLinks = set()
+allIntLinks = set()
+
+def getAllExternalLinks(siteUrl):
+    try:
+        html=urlopen(siteUrl)
+    except HTTPError as e:
+        return None
+    try:
+        bsObj=BeautifulSoup(html,"html.parser")
+        internalLinks=getInternalLinks(bsObj,splitAddress(domain)[0])
+        externalLinks=getExternalLinks(bsObj,splitAddress(domain)[0])
+    except AttributeError as e:
+        return None
+
+    for link in externalLinks:
+        if link not in allExtLinks:
+            allExtLinks.add(link)
+            print(link)
+    for link in internalLinks:
+        if link == "/":
+            link = domain
+        elif link[0:2] == "//":
+            link = "http:" + link
+        elif link[0:1] == "/":
+            link = domain + link
+
+        if link not in allIntLinks:
+            print("About to get link: "+link)
+            allIntLinks.add(link)
+            getAllExternalLinks(link)
+
+domain = "http://oreilly.com"
+getAllExternalLinks(domain)
+
+
+
