@@ -1,4 +1,5 @@
-# 홈페이지에서 img 태그에 연결된 내부 파일을 모두 다운로드 받는 코드
+# 홈페이지에서 img 태그 파일을 모두 다운로드 받는 코드
+
 import os
 from urllib.request import urlretrieve
 from urllib.request import urlopen

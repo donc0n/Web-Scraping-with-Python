@@ -1,3 +1,5 @@
+# html문서의 h1 태그를 가져오는 코드
+
 from urllib.request import urlopen
 from urllib.request import HTTPError
 from bs4 import BeautifulSoup

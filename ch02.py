@@ -1,14 +1,13 @@
+# 복잡한 HTML 분석 코드
+
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import re
-
-# 복잡한 HTML 분석하기
 # "페이지 인쇄" 같은 링크를 찾아보거나, 더 나은 HTML 구조를 갖춘 모바일 버전 사이트를 찾아본다.
 # 자바스크립트 파일에 숨겨진 정보를 찾아본다.
 # 원하는 정보가 페이지 URL에 들어있을 때도 있다.
 # 다른 웹사이트에 같은 데이터를 찾아본다.
 # 그래도 안된다면...
-
 html = urlopen("http://pythonscraping.com/pages/warandpeace.html")
 bsObj = BeautifulSoup(html, "html.parser")
 nameList = bsObj.findAll("span", {"class":"green"})

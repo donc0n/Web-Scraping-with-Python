@@ -1,7 +1,9 @@
+# 홈페이지와 연결된 전체 사이트 크롤링 코드
+
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import re
-# 홈페이지와 연결된 전체 사이트 크롤링 코드
+
 pages = set()
 def getLinks(pageUrl):
     global pages

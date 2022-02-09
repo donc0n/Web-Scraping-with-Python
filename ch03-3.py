@@ -1,3 +1,5 @@
+# 연결된 외부 링크를 따라가는 인터넷 크롤링 코드
+
 from urllib.request import urlopen
 from urllib.request import HTTPError
 from urllib.parse import urlparse
@@ -5,8 +7,6 @@ from bs4 import BeautifulSoup
 import re
 import datetime
 import random
-# 인터넷 크롤링 코드
-
 # 외부 링크를 닥치는 대로 따라가는 크롤러를 만들기 전:
 # 내가 수집하려는 데이터는 어떤 것인지? 정해진 사이트 몇 개만 수집하면 되나 -> 더 쉬운 방법이 있다.
 # 그런 사이트가 있는지조차 몰랐던 사이트에도 방문하는 크롤러가 필요할까? 
@@ -96,6 +96,3 @@ def getAllExternalLinks(siteUrl):
 
 domain = "http://oreilly.com"
 getAllExternalLinks(domain)
-
-
-

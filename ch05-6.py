@@ -1,3 +1,5 @@
+# 케빈 베이컨 위키 문서부터 시작해서 링크를 랜덤 서핑하며 위키 문서를 DB에 저장하는 코드
+
 from urllib.request import urlopen
 from urllib.parse import quote
 from bs4 import BeautifulSoup
@@ -6,7 +8,7 @@ import random
 import re
 import pymysql
 
-conn = pymysql.connect(host='127.0.0.1', user='root', passwd='$lothd@m0n', db='mysql', charset='utf8')
+conn = pymysql.connect(host='127.0.0.1', user='root', passwd='[Your Password]', db='mysql', charset='utf8')
 
 cur = conn.cursor()
 cur.execute("USE scraping")

@@ -1,3 +1,5 @@
+# CSV 파일을 WRITE 하는 코드
+
 # CSV(Comma-Spearated Values) 스프레드시트 데이터를 저장할 때 가장 널리 쓰이는 파일 형식
 import os
 import csv

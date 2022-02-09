@@ -1,3 +1,5 @@
+# 링크를 랜덤 서핑하며 페이지 개정 내역의 IP들을 가져오는 함수
+
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import datetime

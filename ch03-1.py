@@ -1,3 +1,5 @@
+# 링크 랜덤 서핑 코드
+
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import datetime
@@ -17,8 +19,6 @@ for link in bsObj.find("div", {"id":"bodyContent"}).findAll("a", href=re.compile
     if 'href' in link.attrs:
         print(link.attrs['href'])
 '''
-
-# 링크 랜덤 서핑 코드
 def getLinks(articleUrl):
     html = urlopen("http://en.wikipedia.org"+articleUrl)
     bsObj = BeautifulSoup(html, "html.parser")
