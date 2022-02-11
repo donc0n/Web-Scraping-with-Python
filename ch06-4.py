@@ -1,7 +1,6 @@
 # 원격 워드 문서를 바이너리 파일 객체로 읽는 코드
 
 from urllib.request import urlopen
-from xml.dom.minidom import Attr
 from zipfile import ZipFile
 from io import BytesIO
 from bs4 import BeautifulSoup

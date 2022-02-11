@@ -2,7 +2,6 @@
 # 위키 문서 페이지의 n-grams을 얻어내는 코드
 
 from urllib.request import urlopen
-from bs4 import BeautifulSoup
 import re
 import string
 import operator

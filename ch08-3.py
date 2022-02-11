@@ -1,7 +1,5 @@
 # ch05-7.py에서 저장한 DB로부터 BFS 방식으로 케빈 베이컨 페이지부터 타켓 페이지까지의 링크를 검색하는 코드  
 
-from urllib.request import urlopen
-from bs4 import BeautifulSoup
 import pymysql
 
 conn = pymysql.connect(host='127.0.0.1', user='root', passwd='$lothd@m0n', db='mysql', charset='utf8')
